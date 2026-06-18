@@ -8,6 +8,7 @@ class AnsPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
 
+    // providerの値の変更をずっと監視して変更があればwidgetを再描画
     final message = ref.watch(msgProvider);
 
 
@@ -21,6 +22,7 @@ class AnsPage extends ConsumerWidget {
         children: [
           FilledButton(
             onPressed: (){
+              // 一瞬見て関数の実行
               ref.read(msgProvider.notifier).change("World");
             }, 
             child: Text("World"),
